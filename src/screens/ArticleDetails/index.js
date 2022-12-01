@@ -1,44 +1,75 @@
-import { useTheme } from '@react-navigation/native';
-import React, {useRef, useState, useEffect} from 'react';
-import { Dimensions, Text, View, TouchableOpacity, ImageBackground, ScrollView } from 'react-native';
-import { Config } from 'react-native-config';
-import { useSelector } from 'react-redux';
-import { strings } from '@/localization';
-import { getUser } from '@/selectors/UserSelectors';
-import { styles } from '@/screens/Home/style';
-import { typography } from '@/theme';
-import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, { useRef, useState, useEffect } from 'react';
+import { Dimensions, Text, View, TouchableOpacity, ImageBackground, ScrollView, useColorScheme } from 'react-native';
+import { color } from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Theme } from '@/theme';
+import { styles } from './style';
+import { ArchiveIcon, HeartIcon, LeftArrowWhiteIcon, MessageWhiteIcon, RepeatIcon } from '@/utils/icons';
+import { Avatar } from '@/components/avatar';
 
+export const ArticleDetails = ({ route }) => {
+    const colorTheme = useColorScheme();
+    const theme = Theme[colorTheme];
 
-const {width: screenWidth} = Dimensions.get('window');
-const {height: screenHeight} = Dimensions.get('window');
-
-export const ArticleDetails = ({route}) => {
-  const { colors } = useTheme();
-    
-  return (
-    <SafeAreaView edges={['left', 'right']} style={{flex: 1}}>
-        <ScrollView>
-        <View style={{height: screenHeight * 0.5, width: screenWidth, backgroundColor: 'red'}}>
-            <ImageBackground source={{url: 'https://i.imgur.com/UPrs1EWl.jpg'}} resizeMode='cover' style={{flex: 1}}>
-                <View style={{flexDirection: 'row', justifyContent:'space-between', marginTop: 60,}}>
-                    <View><Text>tet</Text></View>
+    return (
+        <SafeAreaView edges={['left', 'right']}>
+            <ScrollView >
+                <View style={{ width: theme.dimentions.width, height: theme.dimentions.height * 0.5, }}>
+                    <ImageBackground source={require('@/assets/images/article.png')} resizeMode='cover' style={styles.imageContainer}>
+                        <View style={styles.imageButtons}>
+                            <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF33' }]}>
+                                <LeftArrowWhiteIcon />
+                            </View>
+                            <View>
+                                <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
+                                    <ArchiveIcon />
+                                </View>
+                                <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
+                                    <HeartIcon />
+                                </View>
+                                <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
+                                    <MessageWhiteIcon />
+                                </View>
+                                <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
+                                    <RepeatIcon />
+                                </View>
+                            </View>
+                        </View>
+                        <View>
+                            <Text style={[styles.title, theme.styles.title]}>Attack On Titan’s Eren Yeager Is Now Anime’s Most Intersting Protagonist</Text>
+                        </View>
+                    </ImageBackground>
+                </View>
+                <View style={[styles.bodyContainer, { height: theme.dimentions.height * 0.6, }]}>
+                    <View style={styles.authorContainer}>
+                        <View style={styles.author}>
+                            <Avatar />
+                            <Text style={[styles.autorTitle, theme.styles.subheading]}>by Eren Jaeger</Text>
+                        </View>
+                        <Text style={[styles.date, theme.styles.regular]}>Wed, Oct 5 2022</Text>
+                    </View>
+                    <View >
+                        <Text style={[styles.subTitle, theme.styles.subheading]}>
+                            Why Eren Yeager Is Insane....
+                        </Text>
+                    </View>
                     <View>
-                        <Text>ere</Text>
-                        <Text>ere</Text>
-                        <Text>werwe</Text>
+                        <Text style={[styles.description, theme.styles.smallreg]}>
+                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                        </Text>
+                    </View>
+                    <View>
+                        <Text style={[styles.description, theme.styles.smallreg]}>
+                            Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                        </Text>
+                    </View>
+                    <View>
+                        <Text style={[styles.description, theme.styles.smallreg]}>
+                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
+                        </Text>
                     </View>
                 </View>
-                <View>
-                    <Text>tertewerewr</Text>
-                </View>
-            </ImageBackground>
-        </View>
-        <View style={{backgroundColor: 'white', height: screenHeight *0.6, borderTopLeftRadius: 30, borderTopRightRadius: 30, marginTop: -30}}>
-            <Text>tertet</Text>
-        </View>   
-        </ScrollView>
-    </SafeAreaView>
-  );
+            </ScrollView>
+        </SafeAreaView>
+    );
 }
