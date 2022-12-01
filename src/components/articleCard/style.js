@@ -5,35 +5,41 @@ export const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		paddingVertical: 10,
+		padding: 12,
 		justifyContent: 'space-between',
+		backgroundColor: 'white',
+		borderRadius: 8,
+		marginVertical: 10,
 	},
 	iconContainer: {
-		width: 45,
-		height: 45,
+		width: 72,
+		height: 72,
 		borderRadius: 10,
 		// backgroundColor: '#D561FF5F',
 		alignItems: 'center',
 		justifyContent: 'center',
+		justifyContent: 'space-between',
 	},
 	icon: {
-		width: 21,
-		height: 21,
-		color: '#B94CDF',
-		backgroundColor: '#B94CDF',
+		width: 72,
+		height: 72,		
 	},
 	body: {
 		width: '60%',
 		marginLeft: 16,
 		marginRight: 16,
+		flexDirection: 'row',
 	},
 	bodyTitle: {
 		// color: Theme.colors.black,
 		textAlign: 'left',
 		marginBottom: 8,
+		fontWeight: '600',
+		marginRight: 16
 	},
 	bodySubTitle: {
 		textAlign: 'left',
+		fontWeight: '300',
 	},
 	footer: {
 		marginTop: 3,

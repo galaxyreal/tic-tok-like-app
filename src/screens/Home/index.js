@@ -1,50 +1,34 @@
-import { useTheme } from '@react-navigation/native';
-import React, {useRef, useState, useEffect} from 'react';
-import { Dimensions, SafeAreaView, Text, View, TouchableOpacity } from 'react-native';
-import { Config } from 'react-native-config';
-import { useSelector } from 'react-redux';
-import { strings } from '@/localization';
-import { getUser } from '@/selectors/UserSelectors';
+import React, { useRef, useState, useEffect } from 'react';
+import { Dimensions, Text, View, TouchableOpacity, useColorScheme, FlatList, Image, ImageBackground, ScrollView } from 'react-native';
 import { styles } from '@/screens/Home/style';
-import { typography } from '@/theme';
-import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-const {width: screenWidth} = Dimensions.get('window');
-import {BackBar} from '@/components/backbar';
-import {ExchangeTabs} from '@/components/exchangeTabs';
-import {ArticleCard} from '@/components/articleCard';
+import { Theme, typography } from '@/theme';
+import { BackBar } from '@/components/backbar';
+import { ExchangeTabs } from '@/components/exchangeTabs';
+import { ArticleCard } from '@/components/articleCard';
 import { NAVIGATION } from '@/constants';
 import { useNavigation } from '@react-navigation/native';
+import { BookIcon, ColorArchiveIcon, FilterIcon, MessageBlackIcon, MoreIcon, SearchIcon } from '@/utils/icons';
+import { Avatar } from '@/components/avatar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ENTRIES1 = [
   {
-    title: 'Beautiful and dramatic Antelope Canyon',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/UYiroysl.jpg',
+    title: 'Attack On Titan’s Eren Yeager Is Now Anime’s Most Intersting Portagonist',
+    authorName: 'Eren Jaeger',
+    authorId: '@AttackTitan',
+    url: require('@/assets/images/article.png'),
   },
   {
-    title: 'Earlier this morning, NYC',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/UPrs1EWl.jpg',
-  },
-  {
-    title: 'White Pocket Sunset',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration: 'https://i.imgur.com/MABUbpDl.jpg',
-  },
-  {
-    title: 'Acrocorinth, Greece',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
-  },
-  {
-    title: 'The lone tree, majestic landscape of New Zealand',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
+    title: 'This is just an example for the file please ignore.',
+    authorName: 'Eren Jaeger',
+    authorId: '@AttackTitan',
+    url: require('@/assets/images/article.png'),
   },
 ];
 
-export function Home({route}) {
-  const { colors } = useTheme();
+export function Home({ route }) {
+  const colorTheme = useColorScheme();
+  const theme = Theme[colorTheme];
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
   const exchanges = ['Popular', 'Anime', 'Manga', 'Games', 'Recent'];
@@ -59,63 +43,88 @@ export function Home({route}) {
     setEntries(ENTRIES1);
   }, []);
 
-  const renderItem = ({item, index}, parallaxProps) => {
+  const renderItem = ({ item, index }) => {
     return (
-      <TouchableOpacity
-				onPress={() => handleClick()}
-			>
-      <View style={styles.item}>
-        <ParallaxImage
-          source={{uri: item.illustration}}
-          containerStyle={styles.imageContainer}
-          style={styles.image}
-          parallaxFactor={0.1}
-          {...parallaxProps}
+      <View
+        style={styles.item}
+        key={item.authorId}
+      >
+        <Image
+          source={item.url}
+          style={[styles.image,]}
         />
-        <View style={styles.itemIcons}>
-          <Text>ereewr</Text>
-        </View>
-        <Text style={styles.title} numberOfLines={2}>
-          {item.title}
-        </Text>
-        {/* <Text style={styles.title} numberOfLines={2}>
-          {item.subtitle}
-        </Text> */}
+        <TouchableOpacity style={styles.leftIcon}>
+          <ColorArchiveIcon />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.rightIcon}>
+          <MoreIcon />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.titleContainer, { height: theme.dimentions.width * 0.45, width: theme.dimentions.width * 0.7 }]}
+          onPress={() => handleClick()}
+        >
+          <Text style={[styles.title, theme.styles.regular]}>
+            {item.title}
+          </Text>
+          <View style={styles.author}>
+            <Avatar />
+            <Text style={[styles.authorName, theme.styles.minicaps]}>{item.authorName}</Text>
+            <Text style={[styles.authorId, theme.styles.minicaps]}>{item.authorId} . 2h</Text>
+          </View>
+        </TouchableOpacity>
       </View>
-      </TouchableOpacity>
     );
   };
-  
-  const handleClick = () => {		
-		navigation.navigate(NAVIGATION.articleDetails);
-	};
+
+  const handleClick = () => {
+    navigation.navigate(NAVIGATION.articleDetails);
+  };
 
 
   return (
-    <SafeAreaView>
-      <BackBar 
-        backRoute={route.params} 
-        text="home"
-        Right={() => (
-          <View>
-            <Text>terte</Text>
-          </View>
-        )}
+    <SafeAreaView edges={['left', 'right', 'top']}>
+      <ScrollView>
+        <BackBar
+          backRoute={route.params}
+          text=""
+          Right={() => (
+            <View style={styles.backBar}>
+              <TouchableOpacity style={styles.backBarIcon}>
+                <BookIcon />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.backBarIcon}>
+                <MessageBlackIcon />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.backBarIcon}>
+                <SearchIcon />
+              </TouchableOpacity>
+            </View>
+          )}
         />
-      <Carousel 
-        sliderWidth={screenWidth}
-        sliderHeight={screenWidth}
-        itemWidth={screenWidth * 0.7}
-        data={entries}
-        renderItem={renderItem}
-        hasParallaxImages={true}
-      />
-      <View>
-        <ExchangeTabs tabs={exchanges} setTab={setTab} tab={tab} />
-      </View>
-      <View>
-        <ArticleCard />
-      </View>
+        <View style={styles.headerContainer}>
+          <Text style={[styles.header, theme.styles.headline]}>Trending News</Text>
+          <TouchableOpacity>
+            <FilterIcon />
+          </TouchableOpacity>
+        </View>
+        <View>
+          <FlatList
+            horizontal={true}
+            data={entries}
+            renderItem={renderItem}            
+          // style={{ width: theme.dimentions.width, height: theme.dimentions.width }}
+          />
+        </View>
+
+        <View style={{width: theme.dimentions.width}}>
+          <ExchangeTabs tabs={exchanges} setTab={setTab} tab={tab} />
+        </View>
+        <View style={styles.newsItems}>
+          {/* <FlatList renderItem={<ArticleCard/>}/> */}
+          <ArticleCard />
+          <ArticleCard />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }

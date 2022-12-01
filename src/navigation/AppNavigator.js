@@ -1,34 +1,42 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { useTheme } from '@react-navigation/native';
+import { useColorScheme } from 'react-native';
 import React from 'react';
 import { HomeNavigator } from '@/navigation/HomeNavigator';
 import { TABS } from '@/constants/navigation';
+import { Theme } from '@/theme';
+import { AddIcon, BoardIcon, ColorHeartIcon, HomeIcon, ProfileIcon } from '@/utils/icons';
 
 const Tab = createBottomTabNavigator();
 
 export function AppNavigator() {
-  const { colors } = useTheme();
+  const colorTheme = useColorScheme();
+  const theme = Theme[colorTheme];
 
   return (
-    <Tab.Navigator
+    <Tab.Navigator      
+      initialRouteName={TABS.home}
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarStyle: {
-          borderRadius: 30, 
-          position: 'absolute', 
-          // bottom: 0, 
+        tabBarStyle: {     
+          display: 'flex',     
+          position: 'absolute',
           overflow: 'hidden',
+          justifyContent: 'center',
           alignItems: 'center',
-          justifyContent:'center', 
-        },
-        tabBarItemStyle: {
-          marginTop: 16,
-          alignItems: 'center'
         },
         tabBarShowLabel: false,
-        tabBarActiveTintColor: colors.activeTab,
-        tabBarInactiveTintColor: colors.inactiveTab,
-        tabBarIcon: ({ color }) => null,
+        tabBarActiveTintColor: theme.colors.red,
+        tabBarInactiveTintColor: theme.colors.grey,
+        tabBarIcon: ({ color }) => {
+          switch (route.name) {
+            case TABS.home: return <HomeIcon />
+            case TABS.board: return <BoardIcon />;
+            case TABS.add: return <AddIcon />;
+            case TABS.heart: return <ColorHeartIcon />;
+            case TABS.profile: return <ProfileIcon />
+            default: return <HomeIcon />;
+          }
+        },
       })}
     >
       <Tab.Screen name={TABS.home} component={HomeNavigator} />

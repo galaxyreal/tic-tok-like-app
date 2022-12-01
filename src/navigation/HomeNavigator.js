@@ -19,7 +19,7 @@ export function HomeNavigator({navigation, route}) {
 				tabBarStyle: {
 					paddingBottom: Platform.OS === 'android' ? 8 : 18,
 					height: Platform.OS === 'android' ? 55 : 65,					
-					display: 'flex',
+					display: 'flex',					
 				},
 			});
 		}

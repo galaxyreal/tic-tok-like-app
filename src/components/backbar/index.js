@@ -18,7 +18,7 @@ export const BackBar = ({text, style, backRoute, Right}) => {
 			]}
 		>
 			<TouchableOpacity
-				onPress={() => (backRoute ? navigation.navigate(backRoute) : navigation.goBack())}
+				onPress={() => null}
 			>
 				{/* <View><LeftArrowBlackIcon /> </View> */}
                 <LeftArrowBlackIcon />

@@ -6,33 +6,37 @@ import { Theme } from '@/theme';
 import { styles } from './style';
 import { ArchiveIcon, HeartIcon, LeftArrowWhiteIcon, MessageWhiteIcon, RepeatIcon } from '@/utils/icons';
 import { Avatar } from '@/components/avatar';
+import {useNavigation} from '@react-navigation/core';
 
 export const ArticleDetails = ({ route }) => {
     const colorTheme = useColorScheme();
     const theme = Theme[colorTheme];
+    const navigation = useNavigation();
 
     return (
-        <SafeAreaView edges={['left', 'right']}>
+        <SafeAreaView edges={['left', 'right',]}>
             <ScrollView >
                 <View style={{ width: theme.dimentions.width, height: theme.dimentions.height * 0.5, }}>
                     <ImageBackground source={require('@/assets/images/article.png')} resizeMode='cover' style={styles.imageContainer}>
                         <View style={styles.imageButtons}>
-                            <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF33' }]}>
+                            <TouchableOpacity style={[styles.iconContainer, { backgroundColor: '#FFFFFF33' }]} 
+                                onPress={() => navigation.goBack()}
+                            >
                                 <LeftArrowWhiteIcon />
-                            </View>
+                            </TouchableOpacity>
                             <View>
-                                <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
+                                <TouchableOpacity style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
                                     <ArchiveIcon />
-                                </View>
-                                <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
                                     <HeartIcon />
-                                </View>
-                                <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
                                     <MessageWhiteIcon />
-                                </View>
-                                <View style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[styles.iconContainer, { backgroundColor: '#FFFFFF1A' }]}>
                                     <RepeatIcon />
-                                </View>
+                                </TouchableOpacity>
                             </View>
                         </View>
                         <View>

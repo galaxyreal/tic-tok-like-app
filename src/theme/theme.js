@@ -44,6 +44,10 @@ export const Theme = {
         fontSize: 12,
         lineHeight: 15,
       },
+      minicaps: {
+        fontSize: 10,
+        lineHeight: 15,
+      },
     }),
   },
   dark: {

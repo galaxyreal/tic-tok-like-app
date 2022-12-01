@@ -124,3 +124,65 @@ export const MoreIcon = () => {
 
     );
 };
+
+export const HomeIcon = () => {
+    return (
+        <Svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Path d="M20.9733 7.59499L15.2133 3.56499C13.6433 2.46499 11.2333 2.52499 9.72333 3.69499L4.71333 7.60499C3.71333 8.38499 2.92333 9.98499 2.92333 11.245V18.145C2.92333 20.695 4.99333 22.775 7.54333 22.775H18.3233C20.8733 22.775 22.9433 20.705 22.9433 18.155V11.375C22.9433 10.025 22.0733 8.36499 20.9733 7.59499Z" fill="#C8C8C8" />
+            <Path d="M12.9333 19.525C12.5233 19.525 12.1833 19.185 12.1833 18.775V15.775C12.1833 15.365 12.5233 15.025 12.9333 15.025C13.3433 15.025 13.6833 15.365 13.6833 15.775V18.775C13.6833 19.185 13.3433 19.525 12.9333 19.525Z" fill="white" />
+        </Svg>
+    );
+};
+
+export const BoardIcon = () => {
+    return (
+        <Svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Path d="M22.8633 7.535L19.4933 21.065C19.2533 22.075 18.3533 22.775 17.3133 22.775H4.17331C2.66331 22.775 1.58333 21.2949 2.03333 19.8449L6.24332 6.32504C6.53332 5.38504 7.40333 4.73495 8.38333 4.73495H20.6833C21.6333 4.73495 22.4233 5.31496 22.7533 6.11496C22.9433 6.54496 22.9833 7.035 22.8633 7.535Z" stroke="#C8C8C8" stroke-width="1.5" stroke-miterlimit="10" />
+            <Path opacity="0.4" d="M16.9333 22.775H21.7133C23.0033 22.775 24.0133 21.685 23.9233 20.395L22.9333 6.77499" stroke="#C8C8C8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <Path d="M10.6133 7.155L11.6533 2.83505" stroke="#C8C8C8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <Path d="M17.3133 7.16501L18.2533 2.82504" stroke="#C8C8C8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <Path opacity="0.4" d="M8.63335 12.775H16.6333" stroke="#C8C8C8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <Path opacity="0.4" d="M7.63335 16.775H15.6333" stroke="#C8C8C8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </Svg>
+    );
+};
+
+export const AddIcon = () => {
+    return (
+        <Svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <G opacity="0.4">
+                <Path d="M8.93333 12.775H16.9333" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <Path d="M12.9333 16.775V8.77499" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </G>
+            <Path d="M9.93333 22.775H15.9333C20.9333 22.775 22.9333 20.775 22.9333 15.775V9.77499C22.9333 4.77499 20.9333 2.77499 15.9333 2.77499H9.93333C4.93333 2.77499 2.93333 4.77499 2.93333 9.77499V15.775C2.93333 20.775 4.93333 22.775 9.93333 22.775Z" stroke="#C8C8C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </Svg>
+    );
+};
+
+export const ColorHeartIcon = () => {
+    return (
+        <Svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Path d="M13.5533 21.585C13.2133 21.705 12.6533 21.705 12.3133 21.585C9.41333 20.595 2.93333 16.465 2.93333 9.465C2.93333 6.375 5.42333 3.875 8.49333 3.875C10.3133 3.875 11.9233 4.755 12.9333 6.115C13.9433 4.755 15.5633 3.875 17.3733 3.875C20.4433 3.875 22.9333 6.375 22.9333 9.465C22.9333 16.465 16.4533 20.595 13.5533 21.585Z" stroke="#C8C8C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <Rect x="17.9333" y="15" width="4" height="4" rx="2" fill="#FE024E" />
+        </Svg>
+    );
+};
+
+export const ProfileIcon = () => {
+    return (
+        <Svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Path opacity="0.4" d="M13.0933 11.645C12.9933 11.635 12.8733 11.635 12.7633 11.645C10.3833 11.565 8.49333 9.61499 8.49333 7.21499C8.49333 4.76499 10.4733 2.77499 12.9333 2.77499C15.3833 2.77499 17.3733 4.76499 17.3733 7.21499C17.3633 9.61499 15.4733 11.565 13.0933 11.645Z" stroke="#C8C8C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <Path d="M8.09334 15.335C5.67334 16.955 5.67334 19.595 8.09334 21.205C10.8433 23.045 15.3533 23.045 18.1033 21.205C20.5233 19.585 20.5233 16.945 18.1033 15.335C15.3633 13.505 10.8533 13.505 8.09334 15.335Z" stroke="#C8C8C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </Svg>
+    );
+};
+
+export const EtcIcon = () => {
+    return (
+        <Svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Path d="M2.84299 5.64561C2.21757 5.64561 1.70586 6.15377 1.70586 6.77484C1.70586 7.39592 2.21757 7.90407 2.84299 7.90407C3.46842 7.90407 3.98013 7.39592 3.98013 6.77484C3.98013 6.15377 3.46842 5.64561 2.84299 5.64561Z" fill="black" />
+            <Path d="M10.8033 5.64561C10.1779 5.64561 9.66618 6.15377 9.66618 6.77484C9.66618 7.39592 10.1779 7.90407 10.8033 7.90407C11.4287 7.90407 11.9405 7.39592 11.9405 6.77484C11.9405 6.15377 11.4287 5.64561 10.8033 5.64561Z" fill="black" />
+            <Path d="M6.82235 5.64561C6.19692 5.64561 5.68521 6.15377 5.68521 6.77484C5.68521 7.39592 6.19692 7.90407 6.82235 7.90407C7.44777 7.90407 7.95949 7.39592 7.95949 6.77484C7.95949 6.15377 7.44777 5.64561 6.82235 5.64561Z" fill="black" />
+        </Svg>
+    );
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, View, useColorScheme} from 'react-native';
+import {Text, TouchableOpacity, View, useColorScheme, ScrollView} from 'react-native';
 import {styles} from './style';
 import {Theme} from '@/theme';
 
@@ -8,6 +8,7 @@ export const ExchangeTabs = ({tabs, setTab, tab, style}) => {
 	const theme = Theme[colorTheme];
    console.log(tabs);
 	return (
+		<ScrollView horizontal={true}>
 		<View style={[styles.container, style]}>
 			{tabs?.map((tabitem) => (
 				<TouchableOpacity key={tabitem} onPress={() => setTab(tabitem)}>
@@ -16,7 +17,7 @@ export const ExchangeTabs = ({tabs, setTab, tab, style}) => {
 							numberOfLines={1}
 							style={
 								tab === tabitem
-									? [styles.titleActive]
+									? [styles.titleActive,]
 									: [styles.title]
 							}
 						>
@@ -35,5 +36,6 @@ export const ExchangeTabs = ({tabs, setTab, tab, style}) => {
 				</TouchableOpacity>
 			))}
 		</View>
+		</ScrollView>
 	);
 };

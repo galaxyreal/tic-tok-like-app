@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		width: '100%',
-		paddingHorizontal: 14,
+		paddingTop: 20,
+		paddingHorizontal: 20,
 		borderTopLeftRadius: 30,
 		borderTopRightRadius: 30,
 	},
@@ -37,7 +38,8 @@ export const styles = StyleSheet.create({
 	title: {
 		fontSize: 16,
 		lineHeight: 20,
-        color: 'black'
+        color: 'black',
+		fontWeight: '600',
 		// fontFamily: 'Ubuntu-M',
 		// color: Theme.colors.grey,
 	},
@@ -45,7 +47,8 @@ export const styles = StyleSheet.create({
 		// color: Theme.colors.darkblue,
 		fontSize: 16,
 		lineHeight: 20,
-        color: 'red'
+        color: 'red',
+		fontWeight: '600',
 		// fontFamily: 'Ubuntu-M',
 	},
 });
