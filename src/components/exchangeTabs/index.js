@@ -6,7 +6,7 @@ import {Theme} from '@/theme';
 export const ExchangeTabs = ({tabs, setTab, tab, style}) => {
 	const colorTheme = useColorScheme();
 	const theme = Theme[colorTheme];
-   console.log(tabs);
+
 	return (
 		<ScrollView horizontal={true}>
 		<View style={[styles.container, style]}>
