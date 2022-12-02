@@ -8,7 +8,7 @@ export function RootNavigator() {
   const scheme = useColorScheme();
 
   return (
-    <NavigationContainer theme={Theme[scheme]}>
+    <NavigationContainer>
       <AppNavigator /> 
     </NavigationContainer>
   );
